@@ -8,6 +8,7 @@ import Gallery from './components/Gallery';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Booking from './components/Booking';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Testimonials />
       <Booking />
       <Contact />
+      <Footer />
     </div>
   );
 }
