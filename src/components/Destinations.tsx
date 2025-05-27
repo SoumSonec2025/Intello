@@ -8,59 +8,29 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Feature1 from '../assets/accueil.jpg';
+import Feature2 from '../assets/livre.jpg';
+import Feature3 from '../assets/intello.jpg';
+import Feature4 from '../assets/prointello.jpg';
+import Feature5 from '../assets/notification.jpg';
 
-import Feature1 from '../assets/livre.jpg'; // Placeholder
-import Feature2 from '../assets/sujet.jpg'; // Placeholder
-import Feature3 from '../assets/quiz.jpg'; // Placeholder
-import Feature4 from '../assets/prointello.jpg'; // Placeholder
-import Feature5 from '../assets/notification.jpg'; // Placeholder
+interface DestinationsProps {
+  id?: string;
+}
 
 const fonctionnalites = [
-  {
-    id: 1,
-    name: 'Cours et Résumés',
-    image: Feature1,
-    description: 'Accédez à des cours complets et des résumés offline',
-    price: 'Gratuit',
-  },
-  {
-    id: 2,
-    name: 'Sujets Corrigés',
-    image: Feature2,
-    description: 'Sujets du BAC (2010-2024) avec corrections',
-    price: 'Gratuit',
-  },
-  {
-    id: 3,
-    name: 'Quiz Interactifs',
-    image: Feature3,
-    description: 'Testez vos connaissances avec des quiz',
-    price: 'Gratuit',
-  },
-  {
-    id: 4,
-    name: 'Assistant Intelligent',
-    image: Feature4,
-    description: 'Faites vous guider par un prof expert dans la compréhension de vos cours et la résolution de vos excercices',
-    price: 'Gratuit',
-  },
-  {
-    id: 5,
-    name: 'Notifications',
-    image: Feature5,
-    description: 'Restez motivé avec des rappels',
-    price: 'Gratuit',
-  },
+  { id: 1, name: 'Cours et Résumés', image: Feature1, description: 'Accédez à des cours complets et des résumés offline', price: 'Gratuit' },
+  { id: 2, name: 'Sujets Corrigés', image: Feature2, description: 'Sujets du BAC (2010-2024) avec corrections', price: 'Gratuit' },
+  { id: 3, name: 'Quiz Interactifs', image: Feature3, description: 'Testez vos connaissances avec des quiz', price: 'Gratuit' },
+  { id: 4, name: 'Assistant Intelligent', image: Feature4, description: 'Obtenez des conseils personnalisés', price: 'Gratuit' },
+  { id: 5, name: 'Notifications', image: Feature5, description: 'Restez motivé avec des rappels', price: 'Gratuit' },
 ];
 
-const Fonctionnalités: React.FC = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1
-  });
+const Destinations: React.FC<DestinationsProps> = ({ id }) => {
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section ref={ref} className="py-20 bg-gradient-to-b from-gray-50 to-white" id="fonctionnalite">
+    <section id={id} ref={ref} className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -75,7 +45,6 @@ const Fonctionnalités: React.FC = () => {
             Explorez les outils qui vous préparent au succès au BAC
           </p>
         </motion.div>
-
         <div className="relative">
           <Swiper
             modules={[EffectCoverflow, Pagination, Navigation]}
@@ -141,4 +110,4 @@ const Fonctionnalités: React.FC = () => {
   );
 };
 
-export default Fonctionnalités;
+export default Destinations;

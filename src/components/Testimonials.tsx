@@ -7,6 +7,10 @@ import SophieProfil from '../assets/logo.png';
 import PierreProfil from '../assets/logo.png';
 import MarieProfil from '../assets/logo.png';
 
+interface TestimonialsProps {
+  id?: string;
+}
+
 const testimonials = [
   {
     id: 1,
@@ -34,14 +38,14 @@ const testimonials = [
   }
 ];
 
-const Testimonials: React.FC = () => {
+const Testimonials: React.FC<TestimonialsProps> = ({ id }) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
   });
 
   return (
-    <section ref={ref} className="py-20 bg-gradient-to-b from-gray-50 to-white" id="testimonials">
+    <section id={id} ref={ref} className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

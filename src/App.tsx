@@ -8,6 +8,7 @@ import Gallery from './components/Gallery';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Booking from './components/Booking';
+import Privacy from './components/Privacy';
 import Footer from './components/Footer';
 
 function App() {
@@ -15,14 +16,15 @@ function App() {
     <div className="min-h-screen">
       <Toaster position="top-right" />
       <Navbar />
-      <Hero />
-      <Destinations />
-      <Services />
-      <Gallery />
-      <Testimonials />
-      <Booking />
-      <Contact />
-      <Footer />
+      <Hero id="accueil" />
+      <Destinations id="fonctionnalite" />
+      <Services id="services" />
+      <Gallery id="gallery" />
+      <Testimonials id="testimonials" />
+      <Booking id="a-propos" />
+      <Contact id="contact" />
+      <Privacy id="confidentialite" />
+      <Footer id="footer" />
     </div>
   );
 }

@@ -4,7 +4,11 @@ import { useInView } from 'react-intersection-observer';
 import { Send, Phone, Mail, MapPin } from 'lucide-react';
 import toast from 'react-hot-toast';
 
-const Contact: React.FC = () => {
+interface ContactProps {
+  id?: string;
+}
+
+const Contact: React.FC<ContactProps> = ({ id }) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
@@ -38,7 +42,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section ref={ref} className="py-20 bg-gradient-to-b from-gray-50 to-white" id="contact">
+    <section id={id} ref={ref} className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

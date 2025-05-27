@@ -14,6 +14,21 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const getLinkId = (item: string): string => {
+    switch (item) {
+      case 'Télécharger':
+        return 'accueil';
+      case 'À propos':
+        return 'a-propos';
+      case 'Fonctionnalité':
+        return 'fonctionnalite';
+      case 'Confidentialité':
+        return 'confidentialite';
+      default:
+        return item.toLowerCase();
+    }
+  };
+
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
       isScrolled ? 'bg-white shadow-lg' : 'bg-transparent'
@@ -27,7 +42,7 @@ const Navbar: React.FC = () => {
             transition={{ duration: 0.5 }}
           >
             <img
-              src="src/assets/logo.png" // Placeholder, replace with actual logo
+              src="src/assets/logo.png" // Updated path for public folder
               alt="Intello Logo"
               className="h-10 w-10 mr-2"
             />
@@ -38,10 +53,10 @@ const Navbar: React.FC = () => {
 
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              {['Accueil', 'Fonctionnalité', 'Télécharger', 'À propos'].map((item) => (
+              {['Accueil', 'Fonctionnalité', 'Télécharger', 'À propos', 'Confidentialité'].map((item) => (
                 <motion.a
                   key={item}
-                  href={`#${item.toLowerCase()}`}
+                  href={`#${getLinkId(item)}`}
                   className={`${
                     isScrolled ? 'text-orange-500 hover:text-green-500' : 'text-white hover:text-green-500'
                   } transition-colors duration-200 font-medium text-lg`}
@@ -71,11 +86,12 @@ const Navbar: React.FC = () => {
             exit={{ opacity: 0, y: -20 }}
           >
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg rounded-b-lg">
-              {['Hero', 'Fonctionnalité', 'Télécharger', 'À propos'].map((item) => (
+              {['Accueil', 'Fonctionnalité', 'Télécharger', 'À propos', 'Confidentialité'].map((item) => (
                 <a
                   key={item}
-                  href={`#${item.toLowerCase()}`}
+                  href={`#${getLinkId(item)}`}
                   className="block px-3 py-2 text-orange-500 hover:text-green-500 font-medium text-lg"
+                  onClick={() => setIsOpen(false)}
                 >
                   {item}
                 </a>

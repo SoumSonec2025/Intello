@@ -3,6 +3,10 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Book, CheckSquare, Brain, Bell, Award, User } from 'lucide-react';
 
+interface ServicesProps {
+  id?: string;
+}
+
 const services = [
   {
     icon: Book,
@@ -36,14 +40,14 @@ const services = [
   },
 ];
 
-const Services: React.FC = () => {
+const Services: React.FC<ServicesProps> = ({ id }) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
   });
 
   return (
-    <section ref={ref} className="py-20 bg-gradient-to-b from-gray-50 to-white" id="services">
+    <section id={id} ref={ref} className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -66,11 +70,13 @@ const Services: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-lg p-8 hover:shadow-xl transition-all duration-300 border border-orange-500 hover:border-green-500"
+              className="group bg-white rounded-lg p-8 hover:shadow-xl transition-all duration-300 border border-orange-500 hover:border-green-500"
             >
-              <service.icon className="w-12 h-12 text-green-500 mb-6 mx-auto group-hover:text-orange-500 transition-colors duration-200" />
-              <h3 className="text-xl font-bold text-gray-900 mb-4">{service.title}</h3>
-              <p className="text-gray-700">{service.description}</p>
+              <div className="flex justify-center mb-6">
+                <service.icon className="w-12 h-12 text-green-500 group-hover:text-orange-500 transition-colors duration-200" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">{service.title}</h3>
+              <p className="text-gray-700 text-center">{service.description}</p>
             </motion.div>
           ))}
         </div>

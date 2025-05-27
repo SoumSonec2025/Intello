@@ -8,6 +8,10 @@ import Gallery4 from '../assets/prointello.jpg'; // Placeholder
 import Gallery5 from '../assets/orientation.jpg'; // Placeholder
 import Gallery6 from '../assets/notification.jpg'; // Placeholder
 
+interface GalleryProps {
+  id?: string;
+}
+
 const images = [
   { url: Gallery1, title: 'Cours Offline' },
   { url: Gallery2, title: 'Sujets Corrigés' },
@@ -17,14 +21,14 @@ const images = [
   { url: Gallery6, title: 'Notifications' },
 ];
 
-const Gallery: React.FC = () => {
+const Gallery: React.FC<GalleryProps> = ({ id }) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
   });
 
   return (
-    <section ref={ref} className="py-20 bg-gradient-to-b from-gray-50 to-white" id="gallery">
+    <section id={id} ref={ref} className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
