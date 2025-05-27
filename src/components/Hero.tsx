@@ -1,45 +1,59 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import HerroBanner from '../assets/hero.jpg';
+import HeroImage from '../assets/intello.jpg'; // Placeholder for right-side image
 
 const Hero = () => {
-  return (
-    <div className="relative h-screen">
-      {/* Image d'arrière-plan */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `url(${HerroBanner})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }}
-      >
-        <div className="absolute inset-0 bg-black opacity-40"></div>
-      </div>
+  const handleDownload = () => {
+    const apkUrl = 'src/apk/intello.apk'; // Path to APK in public folder
+    const link = document.createElement('a');
+    link.href = apkUrl;
+    link.download = 'intello.apk'; // Suggests file name for download
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
-      {/* Contenu */}
+  return (
+    <div className="relative h-screen bg-gradient-to-br from-orange-500 to-green-500">
       <div className="relative z-10 h-full flex items-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between w-full">
+          {/* Left Side: Tagline and Button */}
           <motion.div
+            className="md:w-1/2 text-white mb-8 md:mb-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Découvrez le Luxe à l'État Pur
+              Intello, un outil pédagogique incroyable au service de la formation
             </h1>
             <p className="text-xl md:text-2xl mb-8 max-w-2xl">
-              Voyagez dans les destinations les plus exclusives du monde avec un service sur mesure et des expériences uniques.
+              L’app 100% offline boostée par l'intelligence artificielle pour une assistance pédagogique révolutionnée.
             </p>
-            
             <motion.button
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full flex items-center space-x-2 text-lg font-semibold transition-colors duration-200"
+              className="bg-white text-orange-500 px-8 py-4 rounded-full flex items-center space-x-2 text-lg font-semibold transition-colors duration-200 hover:bg-green-500 hover:text-white"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={handleDownload}
             >
-              <span>Réserver maintenant</span>
+              <span>Télécharger maintenant</span>
               <ArrowRight className="w-5 h-5" />
             </motion.button>
+          </motion.div>
+
+          {/* Right Side: Image */}
+          <motion.div
+            className="md:w-1/2 flex justify-center"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <img
+              src={HeroImage}
+              alt="Intello App Preview"
+              className="w-full max-w-md rounded-lg shadow-lg"
+            />
           </motion.div>
         </div>
       </div>

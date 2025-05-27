@@ -1,49 +1,49 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Plane, Hotel, Compass, Coffee, Wine, Camera } from 'lucide-react';
+import { Book, CheckSquare, Brain, Bell, Award, User } from 'lucide-react';
 
 const services = [
   {
-    icon: Plane,
-    title: 'Vols Privés',
-    description: 'Voyagez en toute intimité avec nos services de jets privés'
+    icon: Book,
+    title: 'Cours et Résumés',
+    description: 'Accédez à des cours complets et résumés offline',
   },
   {
-    icon: Hotel,
-    title: 'Hébergements de Luxe',
-    description: 'Les meilleurs hôtels et villas privées du monde'
+    icon: CheckSquare,
+    title: 'Sujets Corrigés',
+    description: 'Sujets du BAC (2010-2024) avec corrections détaillées',
   },
   {
-    icon: Compass,
-    title: 'Excursions Exclusives',
-    description: 'Découvrez des lieux uniques avec nos guides experts'
+    icon: Brain,
+    title: 'Quiz Interactifs',
+    description: 'Testez vos connaissances avec des quiz personnalisés',
   },
   {
-    icon: Coffee,
-    title: 'Conciergerie 24/7',
-    description: 'Un service personnalisé à votre disposition'
+    icon: Bell,
+    title: 'Notifications Motivantes',
+    description: 'Restez motivé avec des rappels et encouragements',
   },
   {
-    icon: Wine,
-    title: 'Expériences Gastronomiques',
-    description: 'Dégustations et restaurants étoilés'
+    icon: Award,
+    title: 'Espace Orientation',
+    description: 'Guides pour les universités et concours prestigieux',
   },
   {
-    icon: Camera,
-    title: 'Moments Mémorables',
-    description: 'Service photo/vidéo pour immortaliser votre voyage'
-  }
+    icon: User,
+    title: 'Assistant Intelligent',
+    description: 'Obtenez des conseils personnalisés avec "Prof Intello"',
+  },
 ];
 
-const Services = () => {
+const Services: React.FC = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
   });
 
   return (
-    <section ref={ref} className="py-20 bg-white" id="services">
+    <section ref={ref} className="py-20 bg-gradient-to-b from-gray-50 to-white" id="services">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -51,11 +51,11 @@ const Services = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Nos Services Premium
+          <h2 className="text-4xl font-bold text-orange-500 mb-4">
+            Fonctionnalités Intello
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Une gamme complète de services haut de gamme pour un voyage d'exception
+          <p className="text-xl text-gray-700 max-w-2xl mx-auto">
+            Découvrez les outils qui boostent votre préparation au BAC
           </p>
         </motion.div>
 
@@ -66,11 +66,11 @@ const Services = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-gray-50 rounded-lg p-8 hover:shadow-lg transition-shadow duration-300"
+              className="bg-white rounded-lg p-8 hover:shadow-xl transition-all duration-300 border border-orange-500 hover:border-green-500"
             >
-              <service.icon className="w-12 h-12 text-blue-600 mb-6" />
+              <service.icon className="w-12 h-12 text-green-500 mb-6 mx-auto group-hover:text-orange-500 transition-colors duration-200" />
               <h3 className="text-xl font-bold text-gray-900 mb-4">{service.title}</h3>
-              <p className="text-gray-600">{service.description}</p>
+              <p className="text-gray-700">{service.description}</p>
             </motion.div>
           ))}
         </div>

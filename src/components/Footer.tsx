@@ -1,42 +1,42 @@
 import React from 'react';
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-900 text-white py-12">
-  <div className="container mx-auto px-4">
-    <div className="flex flex-wrap justify-center mb-12">
-      <div className="w-full md:w-1/3 xl:w-1/4 p-4">
-        <h4 className="text-lg font-bold mb-4">Liens utiles</h4>
-        <ul>
-          <li className="mb-2"><a href="#" className="text-gray-300 hover:text-blue-600">Accueil</a></li>
-          <li className="mb-2"><a href="#" className="text-gray-300 hover:text-blue-600">À propos de nous</a></li>
-          <li className="mb-2"><a href="#" className="text-gray-300 hover:text-blue-600">Contact</a></li>
-          <li className="mb-2"><a href="#" className="text-gray-300 hover:text-blue-600">Blog</a></li>
-        </ul>
+    <footer className="bg-gradient-to-b from-green-500 to-orange-500 text-white py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-wrap justify-center mb-12">
+          <div className="w-full md:w-1/3 xl:w-1/4 p-4">
+            <h4 className="text-lg font-bold text-gray-100 mb-4 hover:text-orange-500">Liens utiles</h4>
+            <ul>
+              <li className="mb-2"><a href="#" className="text-gray-100 hover:text-green-500">Accueil</a></li>
+              <li className="mb-2"><a href="#" className="text-gray-100 hover:text-green-500">À propos</a></li>
+              <li className="mb-2"><a href="#" className="text-gray-100 hover:text-green-500">Contact</a></li>
+              <li className="mb-2"><a href="#" className="text-gray-100 hover:text-green-500">FAQ</a></li>
+            </ul>
+          </div>
+          <div className="w-full md:w-1/3 xl:w-1/4 p-4">
+            <h4 className="text-lg font-bold text-gray-100 mb-4 hover:text-orange-500">Réseaux sociaux</h4>
+            <ul>
+              <li className="mb-2"><a href="#" className="text-gray-100 hover:text-green-500">Facebook</a></li>
+              <li className="mb-2"><a href="#" className="text-gray-100 hover:text-green-500">Twitter</a></li>
+              <li className="mb-2"><a href="#" className="text-gray-100 hover:text-green-500">Instagram</a></li>
+              <li className="mb-2"><a href="#" className="text-gray-100 hover:text-green-500">LinkedIn</a></li>
+            </ul>
+          </div>
+          <div className="w-full md:w-1/3 xl:w-1/4 p-4">
+            <h4 className="text-lg font-bold text-gray-100 mb-4 hover:text-orange-500">Informations légales</h4>
+            <ul>
+              <li className="mb-2"><a href="#" className="text-gray-100 hover:text-green-500">Mentions légales</a></li>
+              <li className="mb-2"><a href="#" className="text-gray-100 hover:text-green-500">Confidentialité</a></li>
+              <li className="mb-2"><a href="#" className="text-gray-100 hover:text-green-500">Conditions</a></li>
+            </ul>
+          </div>
+        </div>
+        <div className="text-center">
+          <p className="text-gray-100 text-sm">© 2025 Intello. Tous droits réservés.</p>
+        </div>
       </div>
-      <div className="w-full md:w-1/3 xl:w-1/4 p-4">
-        <h4 className="text-lg font-bold mb-4">Réseaux sociaux</h4>
-        <ul>
-          <li className="mb-2"><a href="#" className="text-gray-300 hover:text-blue-600"><i className="fa fa-facebook" aria-hidden="true"></i> Facebook</a></li>
-          <li className="mb-2"><a href="#" className="text-gray-300 hover:text-blue-600"><i className="fa fa-twitter" aria-hidden="true"></i> Twitter</a></li>
-          <li className="mb-2"><a href="#" className="text-gray-300 hover:text-blue-600"><i className="fa fa-instagram" aria-hidden="true"></i> Instagram</a></li>
-          <li className="mb-2"><a href="#" className="text-gray-300 hover:text-blue-600"><i className="fa fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
-        </ul>
-      </div>
-      <div className="w-full md:w-1/3 xl:w-1/4 p-4">
-        <h4 className="text-lg font-bold mb-4">Informations légales</h4>
-        <ul>
-          <li className="mb-2"><a href="#" className="text-gray-300 hover:text-blue-600">Mentions légales</a></li>
-          <li className="mb-2"><a href="#" className="text-gray-300 hover:text-blue-600">Politique de confidentialité</a></li>
-          <li className="mb-2"><a href="#" className="text-gray-300 hover:text-blue-600">Conditions d'utilisation</a></li>
-        </ul>
-      </div>
-    </div>
-    <div className="text-center">
-      <p className="text-gray-300 text-sm"> 2025 Ronasdev. Tous droits réservés.</p>
-    </div>
-  </div>
-</footer>
+    </footer>
   );
 };
 
