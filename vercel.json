@@ -7,7 +7,7 @@
         }
     }],
     "routes": [{
-        "src": "/(.*)",
-        "dest": "/"
+        "src": "/((?!static|_next|assets|favicon.ico).*)",
+        "dest": "/index.html"
     }]
 }
