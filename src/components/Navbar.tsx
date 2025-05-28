@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -22,8 +23,6 @@ const Navbar: React.FC = () => {
         return 'a-propos';
       case 'Fonctionnalité':
         return 'fonctionnalite';
-      case 'Confidentialité':
-        return 'confidentialite';
       default:
         return item.toLowerCase();
     }
@@ -42,7 +41,7 @@ const Navbar: React.FC = () => {
             transition={{ duration: 0.5 }}
           >
             <img
-              src="src/assets/logo.png" // Updated path for public folder
+              src="src/assets/logo.png"
               alt="Intello Logo"
               className="h-10 w-10 mr-2"
             />
@@ -53,7 +52,7 @@ const Navbar: React.FC = () => {
 
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              {['Accueil', 'Fonctionnalité', 'Télécharger', 'À propos', 'Confidentialité'].map((item) => (
+              {['Accueil', 'Fonctionnalité', 'Télécharger', 'À propos'].map((item) => (
                 <motion.a
                   key={item}
                   href={`#${getLinkId(item)}`}
@@ -65,6 +64,18 @@ const Navbar: React.FC = () => {
                   {item}
                 </motion.a>
               ))}
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+              >
+                <Link
+                  to="/confidentialite"
+                  className={`${
+                    isScrolled ? 'text-orange-500 hover:text-green-500' : 'text-white hover:text-green-500'
+                  } transition-colors duration-200 font-medium text-lg`}
+                >
+                  Confidentialité
+                </Link>
+              </motion.div>
             </div>
           </div>
 
@@ -86,7 +97,7 @@ const Navbar: React.FC = () => {
             exit={{ opacity: 0, y: -20 }}
           >
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg rounded-b-lg">
-              {['Accueil', 'Fonctionnalité', 'Télécharger', 'À propos', 'Confidentialité'].map((item) => (
+              {['Accueil', 'Fonctionnalité', 'Télécharger', 'À propos'].map((item) => (
                 <a
                   key={item}
                   href={`#${getLinkId(item)}`}
@@ -96,6 +107,13 @@ const Navbar: React.FC = () => {
                   {item}
                 </a>
               ))}
+              <Link
+                to="/confidentialite"
+                className="block px-3 py-2 text-orange-500 hover:text-green-500 font-medium text-lg"
+                onClick={() => setIsOpen(false)}
+              >
+                Confidentialité
+              </Link>
             </div>
           </motion.div>
         )}

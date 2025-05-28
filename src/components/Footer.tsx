@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 interface FooterProps {
   id?: string;
@@ -31,7 +32,7 @@ const Footer: React.FC<FooterProps> = ({ id }) => {
             <h4 className="text-lg font-bold text-gray-100 mb-4 hover:text-orange-500">Informations légales</h4>
             <ul>
               <li className="mb-2"><a href="#" className="text-gray-100 hover:text-green-500">Mentions légales</a></li>
-              <li className="mb-2"><a href="#confidentialite" className="text-gray-100 hover:text-green-500">Confidentialité</a></li>
+              <li className="mb-2"><Link to="/confidentialite" className="text-gray-100 hover:text-green-500">Confidentialité</Link></li>
               <li className="mb-2"><a href="#" className="text-gray-100 hover:text-green-500">Conditions</a></li>
             </ul>
           </div>

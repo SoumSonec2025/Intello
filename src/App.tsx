@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -13,19 +14,32 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="min-h-screen">
-      <Toaster position="top-right" />
-      <Navbar />
-      <Hero id="accueil" />
-      <Destinations id="fonctionnalite" />
-      <Services id="services" />
-      <Gallery id="gallery" />
-      <Testimonials id="testimonials" />
-      <Booking id="a-propos" />
-      <Contact id="contact" />
-      <Privacy id="confidentialite" />
-      <Footer id="footer" />
-    </div>
+    <Router>
+      <div className="min-h-screen">
+        <Toaster position="top-right" />
+        <Navbar />
+        <Routes>
+          {/* Main Page Route */}
+          <Route
+            path="/"
+            element={
+              <>
+                <Hero id="accueil" />
+                <Destinations id="fonctionnalite" />
+                <Services id="services" />
+                <Gallery id="gallery" />
+                <Testimonials id="testimonials" />
+                <Booking id="a-propos" />
+                <Contact id="contact" />
+                <Footer id="footer" />
+              </>
+            }
+          />
+          {/* Privacy Policy Route */}
+          <Route path="/confidentialite" element={<Privacy />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
