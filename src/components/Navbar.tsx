@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
+import logo from '../assets/logo.png';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,7 +42,7 @@ const Navbar: React.FC = () => {
             transition={{ duration: 0.5 }}
           >
             <img
-              src="src/assets/logo.png"
+              src={logo}
               alt="Intello Logo"
               className="h-10 w-10 mr-2"
             />

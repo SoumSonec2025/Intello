@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import logo from '../assets/logo.png';
 
 interface BookingProps {
   id?: string;
@@ -43,7 +44,7 @@ const Booking: React.FC<BookingProps> = ({ id }) => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <img
-              src="src/assets/logo.png" // Updated to public/assets path
+              src={logo} // Updated to public/assets path
               alt="Intello Team"
               className="w-full max-w-md rounded-lg shadow-lg"
               onError={(e) => console.error("Failed to load image:", e.currentTarget.src)}
