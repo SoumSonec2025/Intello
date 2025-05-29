@@ -35,21 +35,23 @@ const Navbar: React.FC = () => {
     } rounded-b-lg`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <motion.div 
-            className="flex items-center"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <img
-              src={logo}
-              alt="Intello Logo"
-              className="h-10 w-10 mr-2"
-            />
-            <span className={`ml-2 text-xl font-bold ${
-              isScrolled ? 'text-orange-500' : 'text-white'
-            }`}>Intello</span>
-          </motion.div>
+          <Link to="/">
+            <motion.div 
+              className="flex items-center"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <img
+                src={logo}
+                alt="Intello Logo"
+                className="h-10 w-10 mr-2"
+              />
+              <span className={`ml-2 text-xl font-bold ${
+                isScrolled ? 'text-orange-500' : 'text-white'
+              }`}>Intello</span>
+            </motion.div>
+          </Link>
 
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
