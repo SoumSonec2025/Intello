@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import HeroImage from '../assets/intello.jpg';
 
 interface HeroProps {
@@ -8,15 +9,7 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ id }) => {
-  const handleDownload = () => {
-    const apkUrl = '/intello.apk';
-    const link = document.createElement('a');
-    link.href = apkUrl;
-    link.download = 'intello.apk';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+  const playStoreUrl = 'https://play.google.com/store/apps/details?id=ci.intello.spbac_uemoa';
 
   return (
     <div id={id} className="relative h-screen bg-gradient-to-br from-orange-500 to-green-500">
@@ -29,20 +22,22 @@ const Hero: React.FC<HeroProps> = ({ id }) => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Boostez vos révisions avec Intello !
+              Intello, un outil pédagogique à la pointe de l'IA
             </h1>
             <p className="text-xl md:text-2xl mb-8 max-w-2xl">
-              L’app 100% offline conçue pour les élèves et candidats au BAC.
+              L’appli 100% conçue pour les élèves, étudiants et candidats au BAC.
             </p>
-            <motion.button
-              className="bg-white text-orange-500 px-8 py-4 rounded-full flex items-center space-x-2 text-lg font-semibold transition-colors duration-200 hover:bg-green-500 hover:text-white"
+            <motion.a
+              href={playStoreUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white text-orange-500 px-6 py-3 rounded-full flex items-center space-x-2 text-lg font-semibold transition-colors duration-200 hover:bg-green-500 hover:text-white"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={handleDownload}
             >
-              <span>Télécharger maintenant</span>
+              <span>Télécharger maintenant sur play store</span>
               <ArrowRight className="w-5 h-5" />
-            </motion.button>
+            </motion.a>
           </motion.div>
           <motion.div
             className="md:w-1/2 flex justify-center"
