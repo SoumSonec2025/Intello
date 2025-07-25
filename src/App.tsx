@@ -11,11 +11,15 @@ import Contact from './components/Contact';
 import Booking from './components/Booking';
 import Privacy from './components/Privacy';
 import Footer from './components/Footer';
+import { motion } from 'framer-motion';
+import { ArrowDownToLine } from 'lucide-react';
 
 function App() {
+  const playStoreUrl = 'https://play.google.com/store/apps/details?id=ci.intello.spbac_uemoa';
+
   return (
     <Router>
-      <div className="min-h-screen">
+      <div className="min-h-screen relative">
         <Toaster position="top-right" />
         <Navbar />
         <Routes>
@@ -38,6 +42,16 @@ function App() {
           {/* Privacy Policy Route */}
           <Route path="/confidentialite" element={<Privacy />} />
         </Routes>
+        <motion.a
+          href={playStoreUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="fixed bottom-4 right-4 bg-orange-500 text-white rounded-full p-3 shadow-lg hover:bg-green-500 transition-colors duration-200"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          <ArrowDownToLine size={40} />
+        </motion.a>
       </div>
     </Router>
   );
