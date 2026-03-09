@@ -13,6 +13,7 @@ import Privacy from './components/Privacy';
 import Footer from './components/Footer';
 import { motion } from 'framer-motion';
 import { ArrowDownToLine } from 'lucide-react';
+import Dashboard from './components/Dashboard';
 
 function App() {
   const playStoreUrl = 'https://play.google.com/store/apps/details?id=ci.intello.spbac_uemoa';
@@ -41,6 +42,7 @@ function App() {
           />
           {/* Privacy Policy Route */}
           <Route path="/confidentialite" element={<Privacy />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
         <motion.a
           href={playStoreUrl}
