@@ -42,7 +42,7 @@ function App() {
           />
           {/* Privacy Policy Route */}
           <Route path="/confidentialite" element={<Privacy />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard/@intello-premium0987654321_sefrgtyiig123456799" element={<Dashboard />} />
         </Routes>
         <motion.a
           href={playStoreUrl}
